@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de Formação do Engenheiro NPE–PSQ</title>
+<style>
+  body {
+    background: radial-gradient(circle at top left, #0b111a, #000);
+    color: #cfe8ff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    text-align: center;
+    color: #66ccff;
+    text-shadow: 0 0 10px #0ff;
+    margin-top: 30px;
+  }
+  .timeline {
+    width: 90%;
+    margin: 40px auto;
+    border-left: 2px solid #00bcd4;
+    padding-left: 20px;
+  }
+  .phase {
+    margin: 40px 0;
+  }
+  .phase h2 {
+    color: #00e5ff;
+    border-bottom: 1px solid #00bcd4;
+    padding-bottom: 5px;
+  }
+  .phase ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .phase li {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 100, 150, 0.1);
+    border-left: 3px solid #00bcd4;
+    transition: all 0.3s ease;
+  }
+  .phase li:hover {
+    background: rgba(0, 150, 200, 0.25);
+  }
+  .area {
+    color: #00ffff;
+    font-weight: bold;
+  }
+  .project {
+    color: #ffd54f;
+  }
+  footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    padding: 20px;
+    border-top: 1px solid #003344;
+  }
+  #glossary {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: rgba(0, 20, 30, 0.95);
+    border-left: 2px solid #00bcd4;
+    color: #cfe8ff;
+    padding: 20px;
+    transition: right 0.4s ease;
+    overflow-y: auto;
+  }
+  #glossary.open {
+    right: 0;
+  }
+  #toggleGlossary {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00bcd4;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00e5ff;
+  }
+  #toggleGlossary:hover {
+    background: #00e5ff;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧭 Mapa de Formação do Engenheiro NPE–PSQ</h1>
+
+<button id="toggleGlossary">📘 Glossário EN/PT</button>
+
+<div class="timeline">
+
+  <div class="phase">
+    <h2>Fase 1 – Fundamentos e Base Técnica</h2>
+    <ul>
+      <li><span class="area">Programação:</span> Aprender C e C++ moderno, estrutura de dados, funções, ponteiros e arrays. Introdução ao Python científico (NumPy, Matplotlib).</li>
+      <li><span class="area">Controle:</span> Revisar álgebra linear e equações diferenciais. Estudar LQR e MPC básico (Model Predictive Control).</li>
+      <li><span class="area">Física:</span> Conceitos de tempo real, latência, e dinâmica de sistemas. Leis de Newton e fundamentos de termodinâmica para fusão.</li>
+      <li><span class="area">Hardware:</span> Introdução a microcontroladores STM32 e eletrônica digital. Simulação de sensores.</li>
+      <li><span class="area">Projeto:</span> <span class="project">🔷 NPE_MPC Core v1</span> – Implementação inicial do controlador preditivo neural em C no PC.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2>Fase 2 – Simulação e Desenvolvimento Técnico</h2>
+    <ul>
+      <li><span class="area">Programação:</span> Uso do OSQP solver, análise de tempo real com DWT Timer. Log e CSV em C e Python.</li>
+      <li><span class="area">Controle:</span> Ajuste de pesos Q e R, restrições de controle e horizonte variável (N=3 a 10).</li>
+      <li><span class="area">Física:</span> Modelagem de sistemas não lineares (Michaelis–Menten, turbulência de plasma).</li>
+      <li><span class="area">Hardware:</span> Simulação de sincronização via timers e DACs.</li>
+      <li><span class="area">Projeto:</span> <span class="project">🔶 PSQ Core v1</span> – Protocolo de Sincronização Quântica simulado.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2>Fase 3 – Integração e Hardware Embarcado</h2>
+    <ul>
+      <li><span class="area">Programação:</span> Portar código para STM32H7 (Cortex-M7). Otimizar memória e latência.</li>
+      <li><span class="area">Controle:</span> Testar MPC real-time no hardware (meta: &lt;100 µs por ciclo).</li>
+      <li><span class="area">Física:</span> Ensaios de estabilidade em malha fechada (loop PSQ-NPE).</li>
+      <li><span class="area">Hardware:</span> Integração com HRTIM, ADC/DAC e comunicação serial.</li>
+      <li><span class="area">Projeto:</span> <span class="project">🧬 VECTRA</span> – integração biomédica e modelagem de resposta biológica ao controle neural.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2>Fase 4 – Aplicações Avançadas e Pesquisa</h2>
+    <ul>
+      <li><span class="area">Programação:</span> Criar interface de análise (Python + C híbrido). Log e plot automático.</li>
+      <li><span class="area">Controle:</span> Estudar controle adaptativo e aprendizado de máquina para ajuste dinâmico.</li>
+      <li><span class="area">Física:</span> Aplicar o sistema a simulações de confinamento de plasma e dinâmica magnética.</li>
+      <li><span class="area">Hardware:</span> Testes de sincronização com jitter &lt;2 µs.</li>
+      <li><span class="area">Projeto:</span> <span class="project">⚛️ AION-1 Alpha</span> – plataforma de controle de plasma com NPE + PSQ integrados.</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <h2>Fase 5 – Rota de Expansão</h2>
+    <ul>
+      <li><span class="area">Pesquisa:</span> Publicação científica (IEEE, IFAC). Colaboração com universidades e laboratórios.</li>
+      <li><span class="area">Inovação:</span> Desenvolvimento de startup deep-tech focada em controle inteligente.</li>
+      <li><span class="area">Futuro:</span> Integração de IA quântica e redes neurais embarcadas em hardware determinístico.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div id="glossary">
+  <h3>📘 Glossário Técnico EN/PT</h3>
+  <ul>
+    <li><b>Latency</b> – Latência: atraso entre entrada e resposta.</li>
+    <li><b>Sampling Time</b> – Tempo de amostragem do controlador.</li>
+    <li><b>Prediction Horizon</b> – Horizonte de predição (N).</li>
+    <li><b>QP Solver</b> – Solucionador de programação quadrática (OSQP).</li>
+    <li><b>Feedback Loop</b> – Malha de realimentação.</li>
+    <li><b>Jitter</b> – Variação temporal entre ciclos.</li>
+    <li><b>Control Effort</b> – Esforço de controle.</li>
+    <li><b>Embedded System</b> – Sistema embarcado.</li>
+    <li><b>Synchronization</b> – Sincronização temporal de processos.</li>
+    <li><b>Nonlinear Dynamics</b> – Dinâmica não linear.</li>
+  </ul>
+</div>
+
+<footer>
+  © 2025 — Mapa de Formação do Engenheiro NPE–PSQ — Conteúdo técnico educacional
+</footer>
+
+<script>
+  const btn = document.getElementById('toggleGlossary');
+  const glossary = document.getElementById('glossary');
+  btn.addEventListener('click', () => {
+    glossary.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

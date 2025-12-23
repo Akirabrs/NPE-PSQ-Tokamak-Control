@@ -1,0 +1,65 @@
+\section{Metodologia Computacional}
+
+A modelagem da cinética de hiperpolarização e relaxamento do QSF-NV foi realizada através de simulação numérica utilizando um modelo fenomenológico de primeira ordem. O código de simulação foi desenvolvido em Python utilizando as bibliotecas \texttt{numpy} e \texttt{matplotlib}.
+
+\subsection{Modelo Matemático}
+
+O crescimento da polarização nuclear $P(t)$ durante o processo de bombeamento óptico foi modelado pela equação de saturação:
+
+\begin{equation}
+\frac{dP(t)}{dt} = \frac{P_{max} - P(t)}{T_{pol}}
+\label{eq:buildup}
+\end{equation}
+
+cuja solução analítica para condição inicial $P(0)=0$ é:
+
+\begin{equation}
+P(t) = P_{max} \left(1 - e^{-t/T_{pol}}\right)
+\end{equation}
+
+O relaxamento longitudinal após a cessação do bombeamento óptico (simulando a injeção in vivo) foi descrito pelo decaimento monoexponencial:
+
+\begin{equation}
+M(t) = P_{max} \cdot e^{-t/T_1}
+\label{eq:decay}
+\end{equation}
+
+\subsection{Parâmetros de Simulação}
+
+Os parâmetros de entrada foram selecionados com base em valores experimentais reportados na literatura para nanodiamantes (NDs) com centros NV em regime otimizado (Tabela \ref{tab:params}).
+
+\begin{table}[h]
+\centering
+\caption{Parâmetros utilizados na simulação computacional.}
+\label{tab:params}
+\begin{tabular}{|l|c|c|l|}
+\hline
+\textbf{Parâmetro} & \textbf{Símbolo} & \textbf{Valor} & \textbf{Justificativa/Referência} \\
+\hline
+Polarização Máxima & $P_{max}$ & 15\% & Extrapolação baseada em Blinder et al. (2025) [4] \\
+Tempo de Polarização & $T_{pol}$ & 34 s & Estimativa para reator microfluídico otimizado \\
+Tempo de Relaxamento & $T_1$ & 142 s & Valor experimental para NDs de alta pureza [3] \\
+Polarização Térmica & $P_{th}$ & $3 \times 10^{-6}$ & Referência para $^{1}$H em 1.5 T (equilíbrio Boltzmann) \\
+Concentração NV & $C_{NV}$ & $\sim 10$ ppm & Densidade ótima para transferência spin-spin \\
+Potência Laser & $P_{laser}$ & 5-10 W & Regime de saturação óptica em 532 nm \\
+Campo Magnético & $B_0$ & 5-10 mT & Regime de Level Anti-Crossing (LAC) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Cálculo do Fator de Aumento ($\epsilon$)}
+
+O fator de aumento (enhancement factor) foi calculado como a razão entre a polarização hiperpolarizada máxima e a polarização térmica de equilíbrio:
+
+\begin{equation}
+\epsilon = \frac{P_{max}}{P_{th}} = \frac{0.15}{3 \times 10^{-6}} \approx 50.000
+\end{equation}
+
+Este valor representa o ganho teórico máximo de sinal em relação a um agente de contraste convencional em equilíbrio térmico a 1.5 T.
+
+\subsection{Implementação Computacional}
+
+As equações \ref{eq:buildup} e \ref{eq:decay} foram integradas numericamente para gerar as curvas de cinética temporal apresentadas nas Figuras 1 e 2. O script de simulação utilizou vetores de tempo linearmente espaçados (\texttt{np.linspace}) para capturar a dinâmica de buildup (0-150 s) e decaimento (0-600 s).
+
+\vspace{0.5cm}
+\noindent \textbf{Nota de Contribuição:} As simulações computacionais e a implementação do código Python foram realizadas em colaboração com M. AI (2025).
