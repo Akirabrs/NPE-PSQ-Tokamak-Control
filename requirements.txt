@@ -1,0 +1,16 @@
+# --- Núcleo Científico (Essencial para o Solver ADI 2D) ---
+numpy>=1.24.3      # Matrizes densas e operações vetoriais (usado no Solver ADI)
+scipy>=1.10.1      # Matrizes esparsas (scipy.sparse) e algoritmos de álgebra linear
+
+# --- Controle e Otimização (Para o MPC e Segurança) ---
+cvxpy>=1.3.1       # Solver de otimização convexa para o MPC
+osqp>=0.6.3        # Otimizador quadrático rápido (backend do CVXPY)
+
+# --- Inteligência Artificial (Para o NPE Neural) ---
+torch>=2.0.1       # PyTorch para a rede neural LSTM/NPE
+pandas>=2.0.2      # Manipulação de logs de dados e CSVs
+
+# --- Visualização e Diagnósticos ---
+matplotlib>=3.7.1  # Plotagem de gráficos 2D e perfis
+plotly>=5.14.1     # Gráficos interativos 3D (para o tokamak_render)
+tqdm>=4.65.0       # Barras de progresso para simulações longas
